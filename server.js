@@ -1,8 +1,52 @@
+'use strict';
+// const Shopify =require('@shopify/shopify-api');
+// const dotenv = require('dotenv');
+// dotenv.config();
 const express = require("express");
 const app = express();
 const consola = require('consola'); 
 app.use(express.json());
 
+
+// // const session = await Shopify.Utils.loadCurrentSession(
+// //     req,
+// //     res
+// //   );
+// //   const client = new Shopify.Clients.Rest(
+// //     session.shop,
+// //     session.accessToken
+// //   );
+// //   const response = client.get({path: 'shop'});
+
+// const { API_KEY, API_SECRET_KEY, SCOPES, SHOP, HOST } = process.env;
+
+// Shopify.Context.initialize({
+//   API_KEY,
+//   API_SECRET_KEY,
+//   SCOPES: SCOPES,
+//   HOST_NAME: HOST.replace(/https?:\/\//, ""),
+//   HOST_SCHEME: HOST.split("://")[0],
+//   IS_EMBEDDED_APP: true,
+//   API_VERSION: "2022-04"
+// });
+// // Storing the currently active shops in memory will force them to re-login when your server restarts. You should
+// // persist this object in your app.
+// const ACTIVE_SHOPIFY_SHOPS= {};
+
+// // the rest of the example code goes here
+
+// app.get("/", async (req, res) => {
+//    // This shop hasn't been seen yet, go through OAuth to create a session
+//   if (ACTIVE_SHOPIFY_SHOPS[SHOP] === undefined) {
+//      // not logged in, redirect to login
+//     res.redirect(`/login`);
+//   } else {
+//     res.send("Hello world!");
+//     // Load your app skeleton page with App Bridge, and do something amazing!
+//     res.end();
+//   }
+// });
+  
 const books = [
     {title: 'Harry Potter', id: 1},
     {title: 'Twilight', id: 2},
