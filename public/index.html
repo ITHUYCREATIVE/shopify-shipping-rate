@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Display</title>
+</head>
+<body>
+    <h1>Store Map</h1>
+    <iframe id="mapIframe" style="width: 100%; height: 90vh; border: none;" allow="geolocation"></iframe>
+
+    <!-- Element to display store information -->
+    <div id="storeInfo"></div>
+
+    <script>
+        async function loadMapUrl() {
+            try {
+                // Fetch the URL from the server
+                const response = await fetch('/getStoreInfo');
+                const data = await response.json();
+                
+                // Get the iframe element
+                const iframe = document.getElementById('mapIframe');    
+                
+                // Set the iframe's src attribute to the URL received from the server
+                iframe.src = data.url;
+            } catch (error) {
+                console.error('Error fetching map URL:', error);
+            }
+        }
+
+        // Call the function to load the map URL when the page loads
+        loadMapUrl();
+
+        // Function to handle incoming messages
+        function handleMessage(event) {
+            // Check the origin of the message (for security)
+            const allowedOrigins = [
+                'https://test-locations.kuronekoyamato.co.jp',
+                'http://localhost:9000'  // Add this if you're testing locally
+            ];
+
+            if (!allowedOrigins.includes(event.origin)) {
+                console.error('Origin not allowed:', event.origin);
+                return;
+            }
+
+            // console.log('Store selected:', event.data);
+            // Process the message
+            if (event.data.type === 'storeSelected') {
+                console.log('Store selected:', event.data.data);
+                // Display or process the store information as needed
+                const storeInfo = event.data.data;
+                document.getElementById('storeInfo').textContent = `Store ID: ${storeInfo.storeId}, Name: ${storeInfo.storeName}, Latitude: ${storeInfo.latitude}, Longitude: ${storeInfo.longitude}`;
+            }
+        }
+
+
+        // Set up the event listener for messages
+        window.addEventListener('message', handleMessage, false);
+    </script>
+</body>
+</html>
