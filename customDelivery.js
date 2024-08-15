@@ -28,18 +28,12 @@ app.get('/', (req, res) => {
   res.send(`Địa chỉ IP của bạn là: ${clientIP}`);
 });
 // Replace these with your actual Heroku database credentials
-// const dbUser = 'nyjmutmvfxtmgb';
-// const dbPassword = 'b44455305a884de44182af8260509f6309a25c0e790bfe685974eea39f326b9f';
-// const dbName = 'd7m5fgl123fb38';
-// const dbHost = 'ec2-23-22-188-47.compute-1.amazonaws.com'; // Typically provided by Heroku
+// const dbUser = '';
+// const dbPassword = '';
+// const dbName = '';
+// const dbHost = ''; // Typically provided by Heroku
 // const dbPort = '5432'; // Typically 5432 for Postgres
 
-//Prod
-const dbUser = 'ccegmeyqygxpnr';
-const dbPassword = '0c879dfbbae582585529f53ea4ac0bf7800c48fd78a56ea35bf20abedc7b9911';
-const dbName = 'ddhc1ev5v0lbi7';
-const dbHost = 'ec2-52-72-56-59.compute-1.amazonaws.com'; // Typically provided by Heroku
-const dbPort = '5432'; // Typically 5432 for Postgres
 
 const client = new Client({
   user: dbUser,
@@ -348,22 +342,6 @@ app.get('/api/books', (req,res)=> {
      
 
 app.get('/createOrder', (req,res)=> {
-    // const basicdata= {
-    //     grant_type:"client_credentials",
-    //     client_id:"D21lVyOtGFxBqdxsk6niskGEPNWes6b5",
-    //     client_secret:"vo8ac1LfVpmjullQvOSgWa5uXtwtPbKEf2tWBhbVkECxu",
-    //     scope:"orders.read,orders.delivery.read,orders.state.write,orders.webhook,stores.read,stores.webhook_status.write,stores.state.write"
-    // }
-    // const token = axios.post('https://stg-api.camel.kitchen/public-api/v1/oauth/token', basicdata)
-    // .then(function (response) {
-    //   // リクエストが成功した場合の処理
-    //   console.log('レスポンス:', response.data);
-    //   res.send(response.data);
-    // })
-    // .catch(function (error) {
-    //   // エラーが発生した場合の処理
-    //   console.error('エラー:', error);
-    // });
 
     const orderData= {
         "order_type": "PICK_UP",
@@ -601,7 +579,7 @@ app.get('/remote', (req,res)=> {
 
     
     function generateCrewSignature() {
-      const clientSecret = "Ia7nQnrPvXI52x1YlbRz138dP32jczgO09_fA2wxIdODmnmDpDyoFAC8KVewl2bQ";
+      const clientSecret = "";
       const body = {
         "event_type": "onDeliveryRequestMatched",
         "id": 8122,

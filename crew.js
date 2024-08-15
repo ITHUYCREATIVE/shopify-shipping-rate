@@ -43,7 +43,7 @@
     
     // Example usage with delivery ID and access token provided as command line arguments
     const deliveryId = 8158;
-    const accessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InlTZTNXaFdpLVFNaWNkVnNpaGt0MCJ9.eyJpc3MiOiJodHRwczovL2NyZXctZXhwcmVzcy1zdGFnaW5nLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJqV2tFU0JaeHB2VjdwZkg3b2F0RE5BMWVCMHBJU2djQ0BjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hcGkuc3RhZ2luZy5jcmV3ZXhwLmNvbS9hZG1pbi9hcGkiLCJpYXQiOjE3MTExNzI3MDUsImV4cCI6MTcxMTI1OTEwNSwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIiwiYXpwIjoialdrRVNCWnhwdlY3cGZIN29hdEROQTFlQjBwSVNnY0MifQ.EY0jFPoGEEsb3Gx5W0Y7ehfrBIeX0VwGiE-QPgcWSxfiUOTBCWdnZbcw4uRpiF9-3kji4SrDLZXnWaTX52NVrMjbwWVTsp78K2o05rsMnuxpqcT4xygLU1tEzVWisl5llwVB545VX-1i4Nm01XiAtwHNc5Fj0aVMW6T9FrXXTgLpBrws5ItMzHYb3sAeohtVt-uArfrkzVIzcql64f550XRPDWbpJP2Hlq44RMJylxMD_gs-_NpIDHnGlJNz_InBV4l8guaKiVdu5kqbudxtvII4EJNnf8OqDgt4x6qmfyO6S9M8uWQPpf0TPkERXPUOjDIiHTUAcWGCzUOVAlQGgg"
+    const accessToken = ""
     
     // cancelDeliveryOnCrewExpress(deliveryId, accessToken);
     
@@ -91,7 +91,7 @@
     const header = "t=1710838672,v1=e6dcd7573c7f4a1523946660d434574069b0e6b965e50d7591a4ed7affdcd532"; // Example header
     const rawBody = '{"event_type":"onDeliveryRequestMatched","delivery_request_id":8142,"pick_up_event_time_prediction":{"event_type":"pick_up","original_prediction":"2024-03-19T18:07:42+09:00","latest_prediction":"2024-03-19T18:07:42+09:00"}}'; // Example raw body
     const crewExpressAcc = {
-      clientSecret: "80a927e6-3837-4339-995d-ae909193383e" // Your client secret
+      clientSecret: "" // Your client secret
     };
     
     const result = verifySignature(header, rawBody, crewExpressAcc);
